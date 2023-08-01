@@ -19,6 +19,9 @@ class P2pServer {
     this.server.use(bodyParser.json());
     this.server.post('/addBlock', this.handleAddBlock.bind(this));
     this.server.get('/blocks', this.handleGetBlocks.bind(this));
+    this.server.get('/', function(req,res) {
+        res.sendFile(__dirname + "/public/main.html")
+    })
   }
 
   start() {
